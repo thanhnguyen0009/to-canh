@@ -210,7 +210,7 @@
 
     </script>
 <script>
-       const scriptURL = 'https://script.google.com/macros/s/AKfycbylo0c3215bQBM5vhG0cquG44Y3JYPeX6P4F-RJSrEJ-J-njW2Wz0dHA2VgVDq3CRE/exec';
+       const scriptURL = 'https://script.google.com/macros/s/AKfycbzrFUvCTGyVHlQ8FM_00alWhCIorpeqaKhtPgLx6DzjwcQmgutE6DaqV_aKeGkElE0/exec';
         const form = document.forms['to-canh'];
 
         form.addEventListener('submit', e => {
@@ -343,34 +343,6 @@ function toggleMusic() {
         musicCircle.classList.remove("spin"); // Dừng xoay
     }
 }
-
-// Tạo đối tượng YouTube Player API
-let player;
-
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('video', {
-        events: {
-            'onStateChange': onPlayerStateChange
-        }
-    });
-}
-
-// Lắng nghe sự kiện trạng thái của video
-function onPlayerStateChange(event) {
-    // Khi video bắt đầu phát (state = 1), dừng nhạc và dừng xoay vòng tròn
-    if (event.data === YT.PlayerState.PLAYING) {
-        if (!audio.paused) {
-            audio.pause(); // Dừng nhạc
-            musicCircle.classList.remove("spin"); // Dừng xoay vòng tròn
-        }
-    }
-}
-
-// Tải API YouTube
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 </script>
 </body>
